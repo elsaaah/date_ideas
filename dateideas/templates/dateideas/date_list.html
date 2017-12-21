@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>DateIdeas</title>
+
+    <link rel="stylesheet" href="{% static 'css/date.css' %}">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/0631d14af0.css">
+  </head>
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Date Ideas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#someIdeas">Some Ideas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#addIdeas">Add an Idea</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Asking tips</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="text-white" id="head">
+      <div class="container text-center">
+        <h1>Welcome to Date Ideas!</h1>
+        <p class="lead">A page full of ideas for you and your date</p>
+      </div>
+    </header>
+
+    <section id="someIdeas" style="background-color: #ffcece">
+      <div class="container">
+        <div class="row" >
+          <div class="col-lg-8 mx-auto" id="witblokje">
+            <h2 class="text-center">Some Ideas</h2>
+            <p class="lead text-center"><strong>Dating has proved to be one of the most fun things to do in a relationship. <br> Do not wait any longer and get out and do something interesting! <br> Add your own date ideas to the list to help others as well</strong></p>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for keywords..">
+            <table id="tabledates">
+              <thead>
+                <th>Date</th>
+                <th>$$</th>
+                <th>key words</th>
+                <th> </th>
+              </thead>
+              {% for idea in ideas %}
+              <tr>
+                <td>{{ idea.date }}</td>
+                <td>{{ idea.costs }}</td>
+                <td>{{ idea.keyword }}</td>
+                <td><a href="{% url 'post_remove' pk=idea.pk %}"><i class="fa fa-trash-o fa-2x"></i></a></td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="addIdeas">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Add a new idea here to add it to the list</h2>
+            <form name="form" method="POST" action="{% url 'date_list' %}">
+              {% csrf_token %}
+              <h3 id="small">Date Idea:</h3>
+              <input name="date" type="text" id="newdescr" placeholder="New description">
+              <h3 id="small">Price:</h3>
+              <input name="costs" type="Number" id="newvalue" placeholder="Insert value here">
+              <h3 id="small">Keywords:</h3>
+              <input name="keyword" type="text" id="newkey" placeholder="Insert keywords here">
+              <button class="mybutton" onclick="myCreateFunction()">Add Idea</button>
+            </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="background-color: #ffcece">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Asking tips</h2>
+            <p class="lead"><strong>Asking someone out on a date can always be an internal struggle. The best tip is to simply ask. Everyone will feel flattered when they are asked out! <br> Always ask the person personally and when they are alone. Don't make it a groupthing.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Webtechnology s156359 2017</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/scrolling-nav.js' %}"></script>
+    <script src="{% static 'js/searchfunction.js' %}"></script>
+
+  </body>
+</html>

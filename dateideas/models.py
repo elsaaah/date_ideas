@@ -3,11 +3,12 @@ from django.utils import timezone
 
 
 class Ideas(models.Model):
-    author = models.ForeignKey('auth.User')
     date = models.CharField(max_length=200)
     costs = models.DecimalField(max_digits=8, decimal_places=2, default=0)
     created_date = models.DateTimeField(
             default=timezone.now)
+    published_date = models.DateTimeField(
+            blank=True, null=True)
     keyword = models.CharField(max_length=200)
 
     def publish(self):

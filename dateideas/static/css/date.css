@@ -1,0 +1,105 @@
+header {
+  padding: 154px 0 100px;
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  header {
+    padding: 156px 0 100px;
+  }
+}
+
+section {
+  padding: 150px 0;
+}
+
+#myInput {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 2px solid black; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+#newdescr, #newkey, #newvalue {
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 2px solid black; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+.mybutton {
+    background-color: #fe424d;
+    border: 1px solid black;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#small {
+  font-size: 18px;
+}
+
+#head {
+  background-color: #022d41;
+}
+
+#witblokje {
+  background: rgb(255, 255, 255, 0.85);
+  border-color: #fe424d;
+  border-style: dashed;
+}
+
+table {
+  height: auto;
+  left: 10%;
+  width:100%;
+  margin: 5px auto;
+  overflow:auto;
+  position: static;
+  table-layout: fixed;
+  border: 3px solid black;
+}
+
+thead th {
+  background: #fe424d;
+  color: #000;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+tr {
+  background-color: ##f2ffff;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 10px;
+}
+tr:nth-child(even) {
+    background-color: #ffcece;
+}
+tr:nth-child(odd) {
+    background-color: #FFF;
+}
+th {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 5px;
+  text-align: center;
+}
+td {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 5px;
+  text-align: left;
+  border: 2px solid #e5e5e5;
+}
