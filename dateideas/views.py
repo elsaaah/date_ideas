@@ -58,11 +58,11 @@ def idea_detail(request, pk, format=None):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = IdeaSerializer(snippet)
+        serializer = IdeaSerializer(idea)
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = IdeaSerializer(snippet, data=request.data)
+        serializer = IdeaSerializer(idea, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
